@@ -1,18 +1,32 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="logo-home">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/id/thumb/8/82/Logo_Gereja_Toraja.png/240px-Logo_Gereja_Toraja.png"
+        width="700"
+        height="700"
+        class="d-inline-block align-top"
+      />
+      <HelloWorld msg="Welcome to Your Vue.js App" />
+    </div>
+    <!-- <Banner></Banner> -->
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import HelloWorld from "@/components/HelloWorld.vue";
+import Banner from "../components/Banner";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
+    HelloWorld,
+    Banner
   }
-}
+};
 </script>
+<style scoped>
+#logo-home {
+  margin-top: 100px;
+}
+</style>
