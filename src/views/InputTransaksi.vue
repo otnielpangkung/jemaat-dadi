@@ -161,6 +161,7 @@ export default {
       this.$store
         .dispatch("addTransaksi", payload)
         .then(({ data }) => {
+          console.log("Input sukses");
           this.$router.push("/transaksilist");
           localStorage.getItem("access_token");
         })

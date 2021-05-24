@@ -101,8 +101,7 @@ export default {
     getTransaksiPeriode() {
       let data = {
         startDate: this.startDate,
-        endDate: this.endDate,
-        mataAnggaranId: this.mataAnggaranId
+        endDate: this.endDate
       };
       return axios({
         method: "get",
