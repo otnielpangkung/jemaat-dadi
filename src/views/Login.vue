@@ -4,26 +4,39 @@
       <form @submit.prevent="login" style="width - 18rem">
         <div class="form-group row">
           <label for="exampleInput11" class=" col-form-label"
-            >SELECT JEMAAT / OIG :</label
-          >
-          <select v-model="cabang">
+            >PILIH OIG:
+          </label>
+          <select v-model="cabang" class="custom-select">
             <option v-for="cabang in listCabang" :key="cabang" :value="cabang">
               {{ cabang }}
             </option>
           </select>
         </div>
+
         <div class="form-group">
-          <label for="exampleInput11">USERNAME</label>
+          <label
+            for="exampleInput11"
+            placeholder="Username"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          >
+          </label>
           <input
             type="text"
             v-model="username"
             class="form-control"
             aria-describedby="emailHelp"
+            placeholder="User Name"
           />
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" v-model="password" />
+          <label for="exampleInputPassword1"></label>
+          <input
+            type="password"
+            class="form-control"
+            v-model="password"
+            placeholder="Password"
+          />
         </div>
         <button type="submit" class="btn btn-primary">login</button>
       </form>
@@ -66,10 +79,14 @@ export default {
 </script>
 
 <style>
-.form-login {
+.container {
+  display: flex;
   justify-content: center;
+}
+
+.form-login {
   width: 100mm;
-  align-items: center;
+
   margin-top: 20mm;
 }
 </style>

@@ -64,7 +64,7 @@
                 :key="selectkma.id"
                 :value="selectkma.id"
               >
-                {{ selectkma.namaKMA }}
+                {{ selectkma.code }} - {{ selectkma.namaKMA }}
               </option>
             </select>
           </div>
@@ -83,7 +83,7 @@
                 :key="selectma.id"
                 :value="selectma.id"
               >
-                {{ selectma.namaMA }}
+                {{ selectma.code }} - {{ selectma.namaMA }}
               </option>
             </select>
           </div>

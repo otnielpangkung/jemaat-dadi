@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="col-100%">
     <div class="container startdate">
       <div class="form-group row" id="formtanggal">
         <label for="exampleInput11" class="col-sm-4 col-form-label"
@@ -15,9 +15,9 @@
         </div>
       </div>
       <div class="form-group row" id="formtanggal">
-        <label for="exampleInput11" class="col-sm-4 col-form-label"
-          >End Date :</label
-        >
+        <div id="sampai">
+          <label for="exampleInput11" class="col-sm-4 col-form-label"> </label>
+        </div>
         <div class="col-sm-8">
           <input
             type="date"
@@ -27,41 +27,65 @@
           />
         </div>
       </div>
-      <div id="mataanggaran">
-        <div id="form-mata-anggaran">
-          <label
-            for="exampleInput11"
-            class="col-sm-3 col-form-label"
-            id="form-mata-anggaran"
-            >Mata Anggaran :</label
-          >
-          <select
-            v-model="mataAnggaranId"
-            class="col-sm-9"
-            id="form-mata-anggaran2"
-          >
-            <option
-              v-for="mataanggaran in listma"
-              :key="mataanggaran.id"
-              :value="mataanggaran.id"
-            >
-              {{ `${mataanggaran.code} - ${mataanggaran.namaMA}` }}
-            </option>
-          </select>
-        </div>
-      </div>
 
       <button type="button" class="btn btn-link" @click="getTransaksiPeriode">
-        FIND
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="35"
+          height="35"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M23.111 20.058l-4.977-4.977c.965-1.52 1.523-3.322 1.523-5.251 0-5.42-4.409-9.83-9.829-9.83-5.42 0-9.828 4.41-9.828 9.83s4.408 9.83 9.829 9.83c1.834 0 3.552-.505 5.022-1.383l5.021 5.021c2.144 2.141 5.384-1.096 3.239-3.24zm-20.064-10.228c0-3.739 3.043-6.782 6.782-6.782s6.782 3.042 6.782 6.782-3.043 6.782-6.782 6.782-6.782-3.043-6.782-6.782zm2.01-1.764c1.984-4.599 8.664-4.066 9.922.749-2.534-2.974-6.993-3.294-9.922-.749z"
+          />
+        </svg>
+      </button>
+      <button
+        type="button"
+        class="btn btn-link"
+        @click.prevent="downloadReport()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="35"
+          height="35"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15.003 3h2.997v5h-2.997v-5zm8.997 1v20h-24v-24h20l4 4zm-19 5h14v-7h-14v7zm16 4h-18v9h18v-9z"
+          />
+        </svg>
       </button>
     </div>
+    <div class="container" id="form-mata-anggaran">
+      <label
+        for="exampleInput11"
+        class="col-sm-3 col-form-label"
+        id="form-mata-anggaran"
+        >Mata Anggaran :</label
+      >
+      <select
+        v-model="mataAnggaranId"
+        class="col-sm-9 "
+        id="form-mata-anggaran2"
+      >
+        <option
+          v-for="mataanggaran in listma"
+          :key="mataanggaran.id"
+          :value="mataanggaran.id"
+        >
+          {{ `${mataanggaran.code} - ${mataanggaran.namaMA}` }}
+        </option>
+      </select>
+    </div>
     <div class="container">
-      <table class="table">
+      <table class="table" id="table-transaksi">
         <thead class="justify-content-center">
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Nama Transaksi</th>
             <th scope="col">Tanggal</th>
+
             <th scope="col">MataAnggaran</th>
             <th scope="col"></th>
             <th scope="col">Jumlah</th>
@@ -80,7 +104,6 @@
         </tbody>
       </table>
     </div>
-    <div class="spasi"></div>
   </div>
 </template>
 
@@ -103,6 +126,17 @@ export default {
     };
   },
   methods: {
+    downloadReport() {
+      // console.log("download 2");
+      const doc = new jsPDF();
+      doc.autoTable({
+        html: "#table-transaksi",
+        // styles: { fillColor: [255, 0, 0] },
+        columnStyles: { 5: { halign: "right" }, 8: { fontSize: 1 } }
+      });
+
+      doc.save("table2.pdf");
+    },
     getTransaksiPeriode() {
       let data = {
         startDate: this.startDate,
@@ -155,6 +189,13 @@ export default {
 </script>
 
 <style>
+#mataanggaran {
+  display: flex;
+  justify-content: right;
+}
+#sampai {
+  width: 15px;
+}
 #container {
   display: flex;
 }
@@ -168,7 +209,7 @@ export default {
 #form-mata-anggaran {
   display: flex;
   width: 50vw;
-  /* margin-bottom: 5mm; */
+  margin-left: 50mm;
 }
 #mataanggaran {
   width: 30mm;

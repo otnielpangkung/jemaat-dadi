@@ -1,15 +1,15 @@
 <template>
   <tr class="list-table">
     <th scope="row">{{ transaksi.id }}</th>
-    <td id="nama-transaksi">{{ transaksi.namaTransaksi }}</td>
-    <td class="">{{ transaksi.tanggal.slice(0, 10) }}</td>
-    <td>
+    <td class="text-left" id="nama-transaksi">{{ transaksi.namaTransaksi }}</td>
+    <td class="text-left">{{ transaksi.tanggal.slice(0, 10) }}</td>
+    <td class="text-left">
       {{ transaksi[`MataAnggaran${namaCabang}`].namaMA }}
     </td>
     <td id="data-uang">Rp.</td>
     <td class="text-right">{{ formatUang(transaksi.jumlah) }}</td>
     <td>{{ transaksi.status }}</td>
-    <td>{{ transaksi.keterangan }}</td>
+    <td class="text-left">{{ transaksi.keterangan }}</td>
 
     <td class="td-width">
       <button

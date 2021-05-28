@@ -17,12 +17,22 @@
     </div> -->
 
     <div class="col">
-      <table class="table" id="table-test">
+      <table class="table table-striped" id="table-test">
         <thead class="justify-content-center">
           <tr>
+            <th Colspan="4">LAPORAN KEUANGAN JEMAAT</th>
+          </tr>
+          <tr>
+            <th Colspan="4">PERIODE {{ periode() }}</th>
+          </tr>
+          <tr>
+            <th Colspan="4"></th>
+          </tr>
+          <tr></tr>
+          <tr>
             <th scope="col" id="namaMa">Nama Mata Anggaran</th>
-            <th scope="col">Kode</th>
-            <th scope="col"></th>
+            <th scope="col" id="kode">Kode</th>
+            <th scope="col" id="rupiah"></th>
             <th scope="col">Jumlah</th>
           </tr>
         </thead>
@@ -140,6 +150,42 @@
                 )
               }}
             </td>
+          </tr>
+          <tr>
+            <th Colspan="4"></th>
+          </tr>
+          <tr>
+            <td Colspan="1">Ketua</td>
+            <td Colspan="3">Bendahara</td>
+          </tr>
+          <tr>
+            <td Colspan="1" id="tanda-tangan"></td>
+            <td Colspan="3" id="tanda-tangan"></td>
+          </tr>
+          <tr>
+            <th Colspan="4"></th>
+          </tr>
+          <tr>
+            <td Colspan="1">(.........................)</td>
+            <td Colspan="3">(.........................)</td>
+          </tr>
+          <tr>
+            <th Colspan="4"></th>
+          </tr>
+          <tr>
+            <th Colspan="3">Catatan :</th>
+            <th Colspan="1">Verifikasi</th>
+          </tr>
+          <tr>
+            <td Colspan="1" id="tanda-tangan"></td>
+            <td Colspan="3" id="tanda-tangan"></td>
+          </tr>
+          <tr>
+            <th Colspan="4"></th>
+          </tr>
+          <tr>
+            <td Colspan="1">(.........................)</td>
+            <td Colspan="3"></td>
           </tr>
         </tbody>
       </table>
@@ -339,6 +385,12 @@ export default {
 
       doc.save(`Lap.Keu ${this.namaCabang} ${this.periodeLaporan}.pdf`);
     },
+    periode() {
+      const bulan = moment(this.selectedMonth).get("month") + 1;
+      const tahun = moment(this.selectedMonth).get("year");
+
+      return `Bulan ${bulan} Tahun ${tahun}`;
+    },
     formatUang(data) {
       // console.log(data, "dataa");
       let uang = "";
@@ -454,15 +506,22 @@ export default {
 h4 {
   color: black;
 }
-
+#table-test {
+  margin-left: 0cm;
+}
 #keterangan-table1 {
   display: flex;
   justify-content: left;
   font-weight: bold;
 }
-
+#rupiah {
+  width: 5mm;
+}
+#kode {
+  width: 15mm;
+}
 #namaMa {
-  width: 20cm;
+  width: 25cm;
 }
 #title-pemasukan {
   display: flex;

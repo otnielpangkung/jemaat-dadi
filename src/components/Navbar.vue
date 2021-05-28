@@ -22,6 +22,10 @@
           Transaksi by Date
         </router-link>
         | <router-link to="/report/bulanan"> Monthly Report </router-link> |
+        <router-link to="/report/lapkeujemaat">
+          Laporan Keuangan Jemaat
+        </router-link>
+        |
         <router-link to="/transaksilist">Transaksi List</router-link>
       </div>
       <div>

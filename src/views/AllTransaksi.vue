@@ -1,6 +1,6 @@
 <template>
   <div class="container" id="table-container">
-    <table class="table">
+    <table class="table table-striped">
       <thead class="justify-content-center">
         <tr>
           <th scope="col" id="id">ID</th>

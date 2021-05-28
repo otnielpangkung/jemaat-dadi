@@ -8,6 +8,7 @@ import TanggalLaporanBulanan from "../views/TanggalLaporanBulanan.vue"
 import FindTransaksi from "../views/FindTransaksi.vue"
 import EditPage from "../components/EditPage.vue"
 import ReportBulanan from "../views/ReportBulanan.vue"
+import LapKeuJemaat from "../views/LapKeuJemaat.vue"
 
 
 Vue.use(VueRouter)
@@ -47,6 +48,11 @@ const routes = [
     name: 'AllTransaksi',
     component: AllTransaksi,
     meta: { requiresAuth: true }
+  },
+  {
+    path: '/report/lapkeujemaat',
+    name: 'LapKeuJemaat',
+    component: LapKeuJemaat
   },
   {
     path: '/editpage',

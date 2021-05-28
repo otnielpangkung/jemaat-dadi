@@ -9,6 +9,11 @@ export default new Vuex.Store({
     userLogin: false,
     currentCabang: localStorage.getItem("cabang"),
     transaksis: [],
+    transaksisJemaat: [],
+    transaksisPPGT: [],
+    transaksisPKBGT: [],
+    transaksisPWGT: [],
+    transaksisSMGT: [],
     banners: [],
     transaksiMataAngagran: [],
     currentTransaksi: "",
@@ -24,6 +29,26 @@ export default new Vuex.Store({
     },
     listTransaksi(state, data) {
       state.transaksis = data
+      // console.log(data);
+    },
+    listTransaksiJemaat(state, data) {
+      state.transaksisJemaat = data
+      console.log(data, "jemaat");
+    },
+    listTransaksiPPGT(state, data) {
+      state.transaksisPPGT = data
+      // console.log(data);
+    },
+    listTransaksiSMGT(state, data) {
+      state.transaksisSMGT = data
+      // console.log(data);
+    },
+    listTransaksiPWGT(state, data) {
+      state.transaksisPWGT = data
+      console.log(data, "pwgt");
+    },
+    listTransaksiPKBGT(state, data) {
+      state.transaksisPKBGT = data
       // console.log(data);
     },
     listTransaksiMataanggaran(state, data) {
@@ -76,8 +101,67 @@ export default new Vuex.Store({
         }
       })
         .then(({ data }) => {
-          console.log(data, "masuuuk");
+
           context.commit("listTransaksi", data)
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    },
+    fatchTransaksiJemaat(context, payload) {
+
+      return axios.get(`jemaat/transaksi`, {
+        headers: {
+          access_token: localStorage.getItem("access_token")
+        }
+      })
+        .then(({ data }) => {
+          context.commit("listTransaksiJemaat", data)
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    },
+    fatchTransaksiPPGT(context, payload) {
+      return axios.get(`ppgt/transaksi`, {
+
+      })
+        .then(({ data }) => {
+
+          context.commit("listTransaksiPPGT", data)
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    },
+    fatchTransaksiSMGT(context, payload) {
+
+      return axios.get(`smgt/transaksi`)
+        .then(({ data }) => {
+
+          context.commit("listTransaksiSMGT", data)
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    },
+    fatchTransaksiPKBGT(context, payload) {
+
+      return axios.get(`/PKBGT/transaksi`,)
+        .then(({ data }) => {
+
+          context.commit("listTransaksiPKBGT", data)
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    },
+    fatchTransaksiPWGT(context, payload) {
+
+      return axios.get(`/pwgt/transaksi`)
+        .then(({ data }) => {
+
+          context.commit("listTransaksiPWGT", data)
         })
         .catch(err => {
           console.log(err);
