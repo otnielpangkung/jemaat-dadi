@@ -1,19 +1,23 @@
 <template>
-  <div class="row align-items-center mt-5">
-    <div class="col">
-      <img
-        src="https://upload.wikimedia.org/wikipedia/id/thumb/8/82/Logo_Gereja_Toraja.png/240px-Logo_Gereja_Toraja.png"
-        width="500"
-        height="500"
-        class="d-inline-block align-top"
-      />
-    </div>
+  <div class="col">
+    <div class="row align-items-center mt-5">
+      <div class="col">
+        <img
+          src="../assets/statistic_data.png"
+          width="650"
+          height="500"
+          class="d-inline-block align-top"
+        />
+      </div>
 
-    <div class="col">
-      <div id="right-text">
-        <h1>Selamat Datang</h1>
-        <div id="info-saldo" class="text-left">
-          Saldo Kas Anda Saat ini adalah : Rp. {{ formatUang(saldoKas) }}
+      <div class="col">
+        <div id="right-text">
+          <h1 class="text-left">Syalom,</h1>
+          <div id="info-saldo" class="text-left">
+            Saldo Kas {{ this.$store.state.currentCabang.toUpperCase() }} Saat
+            ini adalah : Rp.
+            {{ formatUang(saldoKas) }}
+          </div>
         </div>
       </div>
     </div>

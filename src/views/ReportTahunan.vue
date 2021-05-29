@@ -2,7 +2,7 @@
   <div class="col" id="report-bulanan">
     <div class="container mb-3" id="form-tanggal">
       <h4>PERIODE :</h4>
-      <vue-monthly-picker v-model="selectedMonth"></vue-monthly-picker>
+      <input v-model="tahunInput" />
       <button
         @click.prevent="downloadReport2()"
         type="button"
@@ -202,10 +202,10 @@ import jsPDF from "jspdf";
 import "jspdf-autotable";
 
 export default {
-  name: "ReportBulanan",
+  name: "Report Tahunan",
   data() {
     return {
-      selectedMonth: "",
+      tahunInput: 2021,
       saldokas: []
     };
   },
@@ -245,7 +245,7 @@ export default {
     },
     downloadReport() {
       let allTransaksi = this.$store.state.transaksis;
-      const periode = moment(this.selectedMonth).format("MM-YYYY");
+      const periode = this.tahunInput;
       let saldoAwalHeaders = [];
       let headers1 = [
         {
@@ -383,13 +383,12 @@ export default {
         columnStyles: { 3: { halign: "right" } }
       });
 
-      doc.save(`Lap.Keu ${this.namaCabang} ${this.periodeLaporan}.pdf`);
+      doc.save(`Lap.Keu  ${this.namaCabang} ${this.periodeLaporan}.pdf`);
     },
     periode() {
-      const bulan = moment(this.selectedMonth).get("month") + 1;
-      const tahun = moment(this.selectedMonth).get("year");
+      const tahun = this.tahunInput;
 
-      return `Bulan ${bulan} Tahun ${tahun}`;
+      return ` Tahun ${tahun}`;
     },
     formatUang(data) {
       // console.log(data, "dataa");
@@ -405,14 +404,11 @@ export default {
       return uang;
     },
     getSaldoAwal() {
-      const bulan = moment(this.selectedMonth).get("month") + 1;
-      const tahun = moment(this.selectedMonth).get("year");
+      const tahun = this.tahunInput;
       let saldoAwal = 0;
       this.saldokas.map(item => {
         // console.log(tahun, item.tahun, "taaaahun");
-        if (tahun == item.tahun && item.bulan < bulan) {
-          saldoAwal += item.saldo;
-        } else if (item.tahun < tahun) {
+        if (tahun > item.tahun) {
           saldoAwal += item.saldo;
         }
       });
@@ -421,8 +417,8 @@ export default {
     getTotalPemasukan(data) {
       let jumlah = 0;
       data.map(item => {
-        const tanggal = moment(item.tanggal).format("MM-YYYY");
-        const periode = moment(this.selectedMonth).format("MM-YYYY");
+        const tanggal = +item.tanggal.slice(0, 4);
+        const periode = this.tahunInput;
         if (periode == tanggal && +item.JenisTransaksiId % 2 == 1) {
           jumlah += item.jumlah;
         }
@@ -432,8 +428,8 @@ export default {
     getTotalPengeluaran(data) {
       let jumlah = 0;
       data?.map(item => {
-        const tanggal = moment(item.tanggal).format("MM-YYYY");
-        const periode = moment(this.selectedMonth).format("MM-YYYY");
+        const tanggal = +item.tanggal.slice(0, 4);
+        const periode = this.tahunInput;
         if (periode == tanggal && +item.JenisTransaksiId % 2 == 0) {
           jumlah += item.jumlah;
         }
@@ -442,10 +438,10 @@ export default {
     },
     getJumlah(data) {
       let jumlah = 0;
-      console.log(data, "dataaa------");
+
       data?.map(item => {
-        const tanggal = moment(item.tanggal).format("MM-YYYY");
-        const periode = moment(this.selectedMonth).format("MM-YYYY");
+        const tanggal = +item.tanggal.slice(0, 4);
+        const periode = this.tahunInput;
         if (periode == tanggal) {
           jumlah += item.jumlah;
         }
@@ -457,7 +453,6 @@ export default {
         .get(`${this.$store.state.currentCabang}/saldokas`)
         .then(data => {
           this.saldokas = data.data;
-          console.log(data.data, "dataaaa");
         })
         .catch(err => {
           console.log(err, "errrr");
@@ -466,8 +461,7 @@ export default {
   },
   computed: {
     periodeLaporan() {
-      const bulan = moment(this.selectedMonth).get("month") + 1;
-      const tahun = moment(this.selectedMonth).get("year");
+      const tahun = this.tahunInput;
       return `PERIODE BULAN ${bulan} TAHUN ${tahun}`;
     },
     namaCabang() {
@@ -482,10 +476,7 @@ export default {
       return this.$store.state.namaMaPemasukan;
     },
     listMaPengeluaran() {
-      console.log(
-        this.$store.state.namaMaPengeluaran,
-        "masuk list pengeluaran lkwerlkewlkl"
-      );
+      console.log(this.$store.state.namaMaPengeluaran);
       return this.$store.state.namaMaPengeluaran;
     }
   },

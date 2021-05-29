@@ -3,11 +3,13 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import InputTransaksi from '../views/InputTransaksi.vue'
+
 import AllTransaksi from '../views/AllTransaksi.vue'
 import TanggalLaporanBulanan from "../views/TanggalLaporanBulanan.vue"
 import FindTransaksi from "../views/FindTransaksi.vue"
 import EditPage from "../components/EditPage.vue"
 import ReportBulanan from "../views/ReportBulanan.vue"
+import ReportTahunan from "../views/ReportTahunan.vue"
 import LapKeuJemaat from "../views/LapKeuJemaat.vue"
 
 
@@ -31,6 +33,7 @@ const routes = [
     component: InputTransaksi,
     meta: { requiresAuth: true }
   },
+
   {
     path: '/report/bydate',
     name: 'TanggalLaporanBulanan',
@@ -41,6 +44,12 @@ const routes = [
     path: '/report/bulanan',
     name: 'ReportBulanan',
     component: ReportBulanan,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/report/tahunan',
+    name: 'ReportTahunan',
+    component: ReportTahunan,
     meta: { requiresAuth: true }
   },
   {

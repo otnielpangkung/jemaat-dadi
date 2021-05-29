@@ -5,9 +5,9 @@
       <div class="title" href="#">
         <router-link to="/">
           <img
-            src="https://upload.wikimedia.org/wikipedia/id/thumb/8/82/Logo_Gereja_Toraja.png/240px-Logo_Gereja_Toraja.png"
+            src="../assets/JD-LOGO.png"
             width="75"
-            height="75"
+            height="50"
             class="d-inline-block align-top"
           />
         </router-link>
@@ -17,20 +17,25 @@
 
       <div id="nav" v-if="userLogin">
         <router-link to="/input">Input Transaksi</router-link> |
-        <router-link to="/report/bydate"> Transaksi by Date </router-link> |
+
+        <router-link to="/report/bydate">
+          Cari Transaksi Mata Anggaran</router-link
+        >
+        |
         <router-link to="/report/findtransaksi">
-          Transaksi by Date
+          Cari Transaksi Per Tanggal
         </router-link>
-        | <router-link to="/report/bulanan"> Monthly Report </router-link> |
+        | <router-link to="/report/bulanan"> Laporan Bulanan </router-link> | |
+        <router-link to="/report/tahunan"> Laporan Tahunan </router-link> |
         <router-link to="/report/lapkeujemaat">
           Laporan Keuangan Jemaat
         </router-link>
         |
-        <router-link to="/transaksilist">Transaksi List</router-link>
+        <router-link to="/transaksilist">Daftar Transaksi</router-link>
       </div>
       <div>
         <button v-if="userLogin" class="btn btn-danger" @click.prevent="logout">
-          Logout
+          Keluar
         </button>
       </div>
     </nav>

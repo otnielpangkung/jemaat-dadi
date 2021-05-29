@@ -404,7 +404,7 @@ export default {
       this.$store.state.transaksisJemaat?.map(item => {
         let setTahun = item.tanggal.slice(0, 4);
         if (
-          item.tanggal.slice(0, 4) < this.tahun &&
+          +item.tanggal.slice(0, 4) < +this.tahun &&
           item.MataAnggaranJEMAATId == 41
         ) {
           masuk += item.jumlah;
