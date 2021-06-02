@@ -827,8 +827,9 @@ export default {
 
 <style>
 .table {
+  justify-content: center;
   margin-top: 5mm;
-  margin-left: 5cm;
+  margin-left: 7cm;
 }
 #colomn-uang {
   width: 5cm;

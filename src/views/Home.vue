@@ -1,7 +1,7 @@
 <template>
   <div class="col">
     <div class="row align-items-center mt-5">
-      <div class="col">
+      <div data-aos="fade-right" class="col">
         <img
           src="../assets/statistic_data.png"
           width="650"
@@ -10,7 +10,7 @@
         />
       </div>
 
-      <div class="col">
+      <div data-aos="fade-left" class="col">
         <div id="right-text">
           <h1 class="text-left">Syalom,</h1>
           <div id="info-saldo" class="text-left">

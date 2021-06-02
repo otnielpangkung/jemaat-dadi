@@ -15,23 +15,39 @@
         <p class="namaoig">GT - JEMAAT DADI</p>
       </div>
 
-      <div id="nav" v-if="userLogin">
-        <router-link to="/input">Input Transaksi</router-link> |
+      <div id="nav" class="col-3" v-if="userLogin">
+        <div>
+          <b-navbar>
+            <b-navbar-nav>
+              <b-nav-item href="/input">Input Transaksi</b-nav-item>
 
-        <router-link to="/report/bydate">
-          Cari Transaksi Mata Anggaran</router-link
-        >
-        |
-        <router-link to="/report/findtransaksi">
-          Cari Transaksi Per Tanggal
-        </router-link>
-        | <router-link to="/report/bulanan"> Laporan Bulanan </router-link> | |
-        <router-link to="/report/tahunan"> Laporan Tahunan </router-link> |
-        <router-link to="/report/lapkeujemaat">
-          Laporan Keuangan Jemaat
-        </router-link>
-        |
-        <router-link to="/transaksilist">Daftar Transaksi</router-link>
+              <!-- Navbar dropdowns -->
+              <b-nav-item-dropdown text="Cari Transaksi" right>
+                <b-dropdown-item href="/report/bydate"
+                  >Per Mata Anggaran</b-dropdown-item
+                >
+                <b-dropdown-item href="/report/findtransaksi"
+                  >Per Tanggal</b-dropdown-item
+                >
+                <b-dropdown-item href="/transaksilist"
+                  >Seluruh Transaksi</b-dropdown-item
+                >
+              </b-nav-item-dropdown>
+
+              <b-nav-item-dropdown text="Laporan" right>
+                <b-dropdown-item href="/report/bulanan"
+                  >Laporan Bulanan</b-dropdown-item
+                >
+                <b-dropdown-item href="/report/tahunan"
+                  >Laporan Tahunan</b-dropdown-item
+                >
+                <b-dropdown-item href="/report/lapkeujemaat"
+                  >Laporan Keuangan Jemaat</b-dropdown-item
+                >
+              </b-nav-item-dropdown>
+            </b-navbar-nav>
+          </b-navbar>
+        </div>
       </div>
       <div>
         <button v-if="userLogin" class="btn btn-danger" @click.prevent="logout">

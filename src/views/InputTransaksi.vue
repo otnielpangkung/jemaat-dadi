@@ -151,6 +151,7 @@ export default {
   name: "InputTransaksi2",
   data() {
     return {
+      modalShow: true,
       namaTransaksi: "",
       tanggal: "",
       keterangan: "",
@@ -164,6 +165,9 @@ export default {
     };
   },
   methods: {
+    confirmSelect() {
+      confirm("Anda Yakin");
+    },
     addTransaksi() {
       let payload = {
         namaTransaksi: this.namaTransaksi,
@@ -227,7 +231,9 @@ export default {
   width: 40vw;
   /* background-color: rgb(199, 237, 237); */
 }
-
+b-modal {
+  height: 10cm;
+}
 label {
   display: flex;
   justify-self: left;

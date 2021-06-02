@@ -45,6 +45,9 @@ export default {
 };
 </script>
 
+
+
+
 <style>
 .table {
   /* display: flex; */
@@ -64,6 +67,6 @@ export default {
   width: 3mm;
 }
 #table-container {
-  width: 1000mm;
+  width: 2000mm;
 }
 </style>
