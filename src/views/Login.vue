@@ -1,50 +1,52 @@
 <template>
   <div class="row align-items-center mt-5">
     <div class="col">
-      <div class="form-login">
-        <form @submit.prevent="login" style="width - 18rem">
-          <div class="form-group row">
-            <label for="exampleInput11" class=" col-form-label"> </label>
-            <select v-model="cabang" class="custom-select">
-              <option value="" selected disabled hidden>Pilih OIG</option>
-              <option
-                v-for="cabang in listCabang"
-                :key="cabang"
-                :value="cabang"
-              >
-                {{ cabang }}
-              </option>
-            </select>
-          </div>
+      <b-card>
+        <div class="form-login">
+          <form @submit.prevent="login" style="width - 18rem">
+            <div class="form-group row">
+              <label for="exampleInput11" class=" col-form-label"> </label>
+              <select v-model="cabang" class="custom-select">
+                <option value="" selected disabled hidden>Pilih OIG</option>
+                <option
+                  v-for="cabang in listCabang"
+                  :key="cabang"
+                  :value="cabang"
+                >
+                  {{ cabang }}
+                </option>
+              </select>
+            </div>
 
-          <div class="form-group">
-            <label
-              for="exampleInput11"
-              placeholder="Username"
-              aria-label="Username"
-              aria-describedby="basic-addon1"
-            >
-            </label>
-            <input
-              type="text"
-              v-model="username"
-              class="form-control"
-              aria-describedby="emailHelp"
-              placeholder="User Name"
-            />
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1"></label>
-            <input
-              type="password"
-              class="form-control"
-              v-model="password"
-              placeholder="Password"
-            />
-          </div>
-          <button type="submit" class="btn btn-primary">login</button>
-        </form>
-      </div>
+            <div class="form-group">
+              <label
+                for="exampleInput11"
+                placeholder="Username"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+              >
+              </label>
+              <input
+                type="text"
+                v-model="username"
+                class="form-control"
+                aria-describedby="emailHelp"
+                placeholder="User Name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1"></label>
+              <input
+                type="password"
+                class="form-control"
+                v-model="password"
+                placeholder="Password"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">login</button>
+          </form>
+        </div>
+      </b-card>
     </div>
     <div class="col">
       <img
@@ -96,7 +98,10 @@ export default {
   display: flex;
   justify-content: center;
 }
-
+b-card {
+  width: 500px;
+  height: 500px;
+}
 .form-login {
   display: flex;
   justify-content: center;

@@ -17,6 +17,16 @@ export default {
 </script>
 
 <style>
+#app {
+  background: linear-gradient(
+    82deg,
+    rgb(233, 232, 232) 10%,
+    rgb(255, 255, 255) 34%,
+    rgb(255, 255, 255) 79%
+  );
+  overflow-y: auto;
+  height: 100vh;
+}
 .container {
   /* max-height: 15cm; */
   /* overflow: hidden; */
@@ -28,5 +38,11 @@ footer {
 }
 navbar {
   display: inline;
+  background: linear-gradient(
+    82deg,
+    rgb(233, 232, 232) 10%,
+    rgb(255, 255, 255) 34%,
+    rgb(255, 255, 255) 79%
+  );
 }
 </style>
