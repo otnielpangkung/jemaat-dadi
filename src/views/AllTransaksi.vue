@@ -1,5 +1,5 @@
 <template>
-  <div class="container" id="table-container">
+  <div id="table-container">
     <table class="table table-striped">
       <thead class="justify-content-center">
         <tr>
@@ -51,8 +51,8 @@ export default {
 <style>
 .table {
   /* display: flex; */
-  /* justify-content: center; */
-  width: 35cm;
+  justify-content: center;
+  width: 45cm;
 }
 #action {
   width: 8cm;
@@ -67,6 +67,7 @@ export default {
   width: 3mm;
 }
 #table-container {
-  width: 2000mm;
+  margin-left: 0%;
+  width: 2000px;
 }
 </style>

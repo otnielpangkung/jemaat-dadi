@@ -18,13 +18,13 @@ export default {
 
 <style>
 #app {
-  background: linear-gradient(
+  /* background: linear-gradient(
     82deg,
     rgb(233, 232, 232) 10%,
     rgb(255, 255, 255) 34%,
     rgb(255, 255, 255) 79%
-  );
-  overflow-y: auto;
+  ); */
+
   height: 100vh;
 }
 .container {

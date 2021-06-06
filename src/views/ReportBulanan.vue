@@ -33,7 +33,7 @@
             <th scope="col" id="namaMa">Nama Mata Anggaran</th>
             <th scope="col" id="kode">Kode</th>
             <th scope="col" id="rupiah"></th>
-            <th scope="col">Jumlah</th>
+            <th scope="col" id="jumlah">Jumlah</th>
           </tr>
         </thead>
 
@@ -507,6 +507,9 @@ h4 {
   color: black;
 }
 #table-test {
+  /* display: flex; */
+  justify-content: center;
+  width: 25cm;
   margin-left: 0cm;
 }
 #keterangan-table1 {
@@ -517,11 +520,14 @@ h4 {
 #rupiah {
   width: 5mm;
 }
+/* #jumlah {
+  width: 35mm;
+} */
 #kode {
   width: 15mm;
 }
 #namaMa {
-  width: 25cm;
+  width: 15cm;
 }
 #title-pemasukan {
   display: flex;
@@ -536,7 +542,7 @@ h4 {
   justify-items: center;
   justify-self: center;
   align-items: center;
-  max-width: 35cm;
+  max-width: 25cm;
 }
 #format-uang {
   justify-content: right;

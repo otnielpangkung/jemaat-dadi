@@ -62,14 +62,14 @@
         <thead class="justify-content-center">
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Nama Transaksi</th>
-            <th scope="col">Tanggal</th>
-            <th scope="col">MataAnggaran</th>
-            <th scope="col"></th>
-            <th scope="col">Jumlah</th>
-            <th scope="col">Keterangan</th>
-            <th scope="col">status</th>
-            <th scope="col">Action</th>
+            <th>Nama Transaksi</th>
+            <th>Tanggal</th>
+            <th>MataAnggaran</th>
+            <th></th>
+            <th>Jumlah</th>
+            <th>Keterangan</th>
+            <th>status</th>
+            <th id="action">Action</th>
           </tr>
         </thead>
         <tbody>
